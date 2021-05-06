@@ -7,9 +7,9 @@ setInterval(() => {
   let minuteComponents = _getTimeSecionComponents(minute);
   let secondComponents = _getTimeSecionComponents(second);
 
-  let hourBinaryComponents   = hourComponents.map((e) => Number(e).toString(2).padStart(4, '0'));
-  let minuteBinaryComponents = minuteComponents.map((e) => Number(e).toString(2).padStart(4, '0'));
-  let secondBinaryComponents = secondComponents.map((e) => Number(e).toString(2).padStart(4, '0'));
+  let hourBinaryComponents   = _getBinaryComponents(hourComponents);
+  let minuteBinaryComponents = _getBinaryComponents(minuteComponents);
+  let secondBinaryComponents = _getBinaryComponents(secondComponents);
 
   let components = [
     hourBinaryComponents,
@@ -51,4 +51,17 @@ const _getTimeSecionComponents = (section: number): Array<string> => {
   // items): tens and ones
   //
   return section.toString().padStart(2, '0').split("");
+}
+
+const _getBinaryComponents = (components: Array<string>): Array<string> => {
+  // components: is an array of length two: one for the tens and another for
+  // the ones
+  //
+  // for each component `c`, we do the following:
+  //   - convert it into binary using Javascript `toString(2)` function. Notice
+  //     we used the function `Number()` first to convert the component into a
+  //     number so we can use `toString(2)` on the component.
+  //   - pad the resulting string with 0's in order to make it of length 4
+  //
+  return components.map((c) => Number(c).toString(2).padStart(4, '0'));
 }
