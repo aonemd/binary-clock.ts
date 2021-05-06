@@ -1,10 +1,7 @@
 setInterval(() => {
   console.clear();
 
-  const date = new Date()
-  let hour   = date.getHours();
-  let minute = date.getMinutes();
-  let second = date.getSeconds();
+  let [hour, minute, second] = _getTimeSections();
 
   let hourComponents   = hour.toString().padStart(2, '0').split("");
   let minuteComponents = minute.toString().padStart(2, '0').split("");
@@ -30,3 +27,17 @@ setInterval(() => {
     console.log(row);
   }
 }, 1000);
+
+const _getTimeSections = (): Array<number> => {
+  const date = new Date()
+
+  let hours   = date.getHours();
+  let minutes = date.getMinutes();
+  let seconds = date.getSeconds();
+
+  return [
+    hours,
+    minutes,
+    seconds
+  ];
+}
