@@ -3,9 +3,9 @@ setInterval(() => {
 
   let [hour, minute, second] = _getTimeSections();
 
-  let hourComponents   = hour.toString().padStart(2, '0').split("");
-  let minuteComponents = minute.toString().padStart(2, '0').split("");
-  let secondComponents = second.toString().padStart(2, '0').split("");
+  let hourComponents   = _getTimeSecionComponents(hour);
+  let minuteComponents = _getTimeSecionComponents(minute);
+  let secondComponents = _getTimeSecionComponents(second);
 
   let hourBinaryComponents   = hourComponents.map((e) => Number(e).toString(2).padStart(4, '0'));
   let minuteBinaryComponents = minuteComponents.map((e) => Number(e).toString(2).padStart(4, '0'));
@@ -40,4 +40,15 @@ const _getTimeSections = (): Array<number> => {
     minutes,
     seconds
   ];
+}
+
+const _getTimeSecionComponents = (section: number): Array<string> => {
+  // secion is one of: hours, minutes, or seconds
+  //
+  // convert the section number into a string
+  // pad the string with a 0 if it's a signle digit. For example, '2' => '02'
+  // split the string into two components (represented by an array of two
+  // items): tens and ones
+  //
+  return section.toString().padStart(2, '0').split("");
 }
