@@ -28,7 +28,7 @@ class BinaryClock {
   }
 
   private _getTimeSections(): Array<number> {
-    const date = new Date()
+    const date = new Date();
 
     let hours   = date.getHours();
     let minutes = date.getMinutes();
