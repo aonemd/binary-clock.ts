@@ -1,5 +1,5 @@
 {
-  "name": "binary-clock.js",
+  "name": "binary-clock.ts",
   "version": "1.0.0",
   "main": "index.ts",
   "license": "MIT",
