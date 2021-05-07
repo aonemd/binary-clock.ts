@@ -1,6 +1,4 @@
 setInterval(() => {
-  console.clear();
-
   let [hour, minute, second] = _getTimeSections();
 
   let hourComponents   = _getTimeSecionComponents(hour);
@@ -17,15 +15,7 @@ setInterval(() => {
     secondBinaryComponents,
   ];
 
-
-  for (let i = 0; i < 4; i++) {
-    let row = "";
-    for (let j = 0; j < 3; j++) {
-      row += (components[j][0][i] + ' ');
-      row += (components[j][1][i] + ' ');
-    }
-    console.log(row);
-  }
+  _printToConsole(components);
 }, 1000);
 
 const _getTimeSections = (): Array<number> => {
@@ -64,4 +54,23 @@ const _getBinaryComponents = (components: Array<string>): Array<string> => {
   //   - pad the resulting string with 0's in order to make it of length 4
   //
   return components.map((c) => Number(c).toString(2).padStart(4, '0'));
+}
+
+const _printToConsole = (components: Array<Array<string>>) => {
+  // clear the previous clock from the terminal before printing
+  console.clear();
+
+  // print each row to the terminal
+  // 4: is the number of the rows of the binary clock
+  // 3: is the number of sections (hours, minutes, and seconds)
+  //
+  for (let i = 0; i < 4; i++) {
+    let row = "";
+    for (let j = 0; j < 3; j++) {
+      row += (components[j][0][i] + ' ');  // tens component
+      row += (components[j][1][i] + ' ');  // ones component
+    }
+
+    console.log(row);
+  }
 }
