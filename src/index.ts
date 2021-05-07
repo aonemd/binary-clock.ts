@@ -1,24 +1,30 @@
 class BinaryClock {
   run() {
     setInterval(() => {
-      let [hours, minutes, seconds] = this._getTimeSections();
+      let timeComponents = this._tick();
 
-      let hourComponents   = this._getTimeSecionComponents(hours);
-      let minuteComponents = this._getTimeSecionComponents(minutes);
-      let secondComponents = this._getTimeSecionComponents(seconds);
-
-      let hourBinaryComponents   = this._getBinaryComponents(hourComponents);
-      let minuteBinaryComponents = this._getBinaryComponents(minuteComponents);
-      let secondBinaryComponents = this._getBinaryComponents(secondComponents);
-
-      let components = [
-        hourBinaryComponents,
-        minuteBinaryComponents,
-        secondBinaryComponents,
-      ];
-
-      this._printToConsole(components);
+      this._printToConsole(timeComponents);
     }, 1000);
+  }
+
+  private _tick(): Array<Array<string>> {
+    let [hours, minutes, seconds] = this._getTimeSections();
+
+    let hourComponents   = this._getTimeSecionComponents(hours);
+    let minuteComponents = this._getTimeSecionComponents(minutes);
+    let secondComponents = this._getTimeSecionComponents(seconds);
+
+    let hourBinaryComponents   = this._getBinaryComponents(hourComponents);
+    let minuteBinaryComponents = this._getBinaryComponents(minuteComponents);
+    let secondBinaryComponents = this._getBinaryComponents(secondComponents);
+
+    let components = [
+      hourBinaryComponents,
+      minuteBinaryComponents,
+      secondBinaryComponents,
+    ];
+
+    return components;
   }
 
   private _getTimeSections(): Array<number> {
