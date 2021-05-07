@@ -1,9 +1,9 @@
 setInterval(() => {
-  let [hour, minute, second] = _getTimeSections();
+  let [hours, minutes, seconds] = _getTimeSections();
 
-  let hourComponents   = _getTimeSecionComponents(hour);
-  let minuteComponents = _getTimeSecionComponents(minute);
-  let secondComponents = _getTimeSecionComponents(second);
+  let hourComponents   = _getTimeSecionComponents(hours);
+  let minuteComponents = _getTimeSecionComponents(minutes);
+  let secondComponents = _getTimeSecionComponents(seconds);
 
   let hourBinaryComponents   = _getBinaryComponents(hourComponents);
   let minuteBinaryComponents = _getBinaryComponents(minuteComponents);
