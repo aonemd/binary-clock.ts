@@ -14,9 +14,9 @@ class BinaryClock {
     let minuteComponents = this._getTimeSecionComponents(minutes);
     let secondComponents = this._getTimeSecionComponents(seconds);
 
-    let hourBinaryComponents   = this._getBinaryComponents(hourComponents);
-    let minuteBinaryComponents = this._getBinaryComponents(minuteComponents);
-    let secondBinaryComponents = this._getBinaryComponents(secondComponents);
+    let hourBinaryComponents   = this._convertComponentsToBinary(hourComponents);
+    let minuteBinaryComponents = this._convertComponentsToBinary(minuteComponents);
+    let secondBinaryComponents = this._convertComponentsToBinary(secondComponents);
 
     let components = [
       hourBinaryComponents,
@@ -52,7 +52,7 @@ class BinaryClock {
     return section.toString().padStart(2, '0').split("");
   }
 
-  private _getBinaryComponents(components: Array<string>): Array<string> {
+  private _convertComponentsToBinary(components: Array<string>): Array<string> {
     // components: is an array of length two: one for the tens and another for
     // the ones
     //
