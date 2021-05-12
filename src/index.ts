@@ -10,9 +10,9 @@ class BinaryClock {
   private _tick(): Array<Array<string>> {
     let [hours, minutes, seconds] = this._getTimeSections();
 
-    let hourComponents   = this._getTimeSecionComponents(hours);
-    let minuteComponents = this._getTimeSecionComponents(minutes);
-    let secondComponents = this._getTimeSecionComponents(seconds);
+    let hourComponents   = this._getTimeSectionComponents(hours);
+    let minuteComponents = this._getTimeSectionComponents(minutes);
+    let secondComponents = this._getTimeSectionComponents(seconds);
 
     let hourBinaryComponents   = this._convertComponentsToBinary(hourComponents);
     let minuteBinaryComponents = this._convertComponentsToBinary(minuteComponents);
@@ -41,8 +41,8 @@ class BinaryClock {
     ];
   }
 
-  private _getTimeSecionComponents(section: number): Array<string> {
-    // secion is one of: hours, minutes, or seconds
+  private _getTimeSectionComponents(section: number): Array<string> {
+    // section is one of: hours, minutes, or seconds
     //
     // convert the section number into a string
     // pad the string with a 0 if it's a signle digit. For example, '2' => '02'
